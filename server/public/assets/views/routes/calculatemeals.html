@@ -1,0 +1,21 @@
+<div>
+    <h1 class="admin-header">Meal Calculation</h1>
+    <div class="info">
+        <p>Instructions: </p>
+        <p>Enter in the total number of 5 packs for each category to determine the total number of individual
+            meals to be prepared</p>
+    </div>
+    <form novalidate class="meal-form" name="mealCountForm" ng-submit="calculateMeals()">
+        <div class="form-group" ng-repeat="category in categories">
+            <label>{{category.category_name}}</label>
+            <input class="form-control" type="number" name="{{category.category_name}}" ng-model="category.formCount">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div ng-show="displayResults">
+        <div ng-repeat="meal in menu">
+            <p>Entree: {{meal.entree}}</p>
+            <p>Count: {{meal.count}}</p>
+        </div>
+    </div>
+</div>
